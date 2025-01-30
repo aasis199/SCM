@@ -1,7 +1,8 @@
 from django.db import models
 from ckeditor.fields import RichTextField
-
+from datetime import date
 # Create your models here.
+
 
 
 class Notice(models.Model):
@@ -16,7 +17,15 @@ class Notice(models.Model):
     def __str__(self):
         return self.title
 
+class Programs(models.Model):
+    id=models.AutoField(primary_key=True)
+    name = models.CharField(blank=True, null= True, max_length=255)
+    about = RichTextField(blank=False, null=True)
+    excerpt = models.TextField(default="ABC")
+    image = models.ImageField(default="")
 
+    def __str__(self):
+        return self.name
 
 class Career(models.Model):
     name = models.CharField(blank=False, null=False, max_length=255)
@@ -30,28 +39,47 @@ class Career(models.Model):
 
 
 class Contact(models.Model):
-    Name = models.CharField(max_length=20)
-    email = models.EmailField()
+    name = models.CharField(max_length=20)
     phone = models.CharField(max_length=15)
-    subject = models.CharField(max_length=255)
+    address = models.CharField(max_length=255)
     message = models.TextField()
 
     def __str__(self):
-        return self.email
+        return self.name
 
 
 
 class Register(models.Model):
-    first_name = models.CharField(max_length=20)
-    last_name = models.CharField(max_length=20)
+    GENDER_CHOICES = [
+        ('Male', 'Male'),
+        ('Female', 'Female'),
+        ('Other', 'Other'),
+    ]
+    GRADE_CHOICES = [
+        ('kindergarten','kindergarten'),
+        ('nursery','nursery'),
+        ('1 class','1 class'),
+        ('2 class','2 class'),
+        ('3 class','3 class'),
+        ('4 class','4 class'),
+        ('5 class','5 class'),
+        ('6 class','6 class'),
+        ('7 class','7 class'),
+        ('8 class','8 class'),
+        ('9 class','9 class'),
+        ('10 class','10 class')
 
-    email = models.EmailField()
+    ]
+    student_name = models.CharField(max_length=100, blank=False, null=False,default='')
+    dob = models.DateField(default=date.today)
+    gender = models.CharField(max_length=10, choices=GENDER_CHOICES,default='')
+    email = models.EmailField(unique=True)
     phone = models.CharField(max_length=15)
-    course = models.CharField(max_length=255)
-    query = models.TextField()
+    address = models.TextField(default='')
+    grade = models.CharField(max_length=255, choices = GRADE_CHOICES, default='')
 
     def __str__(self):
-        return self.email
+        return self.student_name
 
 
 class Departments(models.Model):
@@ -61,9 +89,9 @@ class Academics(models.Model):
     department = models.ForeignKey(Departments, on_delete= models.CASCADE)
     name = models.CharField(blank=False, null=False, max_length=255)
     qualification = models.CharField(blank=False, null= False, max_length=255)
-
+    image = models.ImageField(default="")
 
     def __str__(self):
-        return self.name + self.department
+        return self.name
     
 

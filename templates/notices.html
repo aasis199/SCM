@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %} 
+
+<div class="container mb-5" style="margin-top: 150px;">
+    <div class="heading">
+        <h3 class="fw-bolder col-primary fs-40 pt-5">Recent <b>Notices</b><hr></h3>
+    </div>
+    <div class="row">
+       {% for item in notices %}
+       <div class="col-md-4 ">
+        <div class="card mx-2 mt-5 ">
+            <h3 class="p-3">{{item.title}}<hr></h3>
+            <p class="fs-15 p-3">{{item.head|truncatewords:20}}</p>
+            <img src="/media/{{item.thumbnail}}" class="w-100">
+            <div class="d-flex justify-content-between"><a href="/notice/{{item.post_id}}" class="p-2 col-sec">Read More...</a><span>{{item.pub_date}}</span></div>
+        </div>
+       </div>
+       {% endfor %}
+    </div>
+</div>
+{% endblock content %} 

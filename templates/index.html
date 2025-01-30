@@ -1,6 +1,134 @@
 {% extends 'base.html' %}
-
+{% load static %}
 
 {% block content %} 
-hello
+<style>
+    .navbar{
+        background-color: transparent ;
+    }
+    .navbar-nav li a {
+        color: #ffffff !important;
+    }
+</style>
+<script>
+        $(window).scroll(function() {
+        if ($(this).scrollTop() > 100) {
+            $('.navbar').addClass('scrolled');
+        } else {
+            $('.navbar').removeClass('scrolled');
+        }
+    });
+</script>
+<main class="main">
+      <!--Hero section-->
+      <section class="hero">
+        <div class="">
+          <video autoplay="autoplay" loop="loop" muted="muted" poster="{% static 'images/banner.png' %}">
+            <source src="{% static 'video/banner.mp4' %}" type="video/mp4">
+            <img class="_img-fluid" alt="{custom_video_poster_description}" src="{% static 'images/banner.png' %}">
+          </video>
+          <h1 class="main-h1 fs-50">Learning for lifetime <br><span class="">-Commitment to the future</span> </h1>
+
+        </div>
+      </section>
+
+      
+      <section class="why mt-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6  animate__animated animate__bounceInLeft">
+                    <h2 class="px-4 col-primary fw-bolder ">ABC SKOOL</h2>
+                    <img src="{%  static 'images/lab.webp' %}" class="why-img w-100 p-4">
+                    <p class="why-content p-4 ">ABC School is a premier educational institution dedicated to nurturing young minds through innovative teaching methods and a holistic approach to learning. With a focus on academic excellence, character building, and extracurricular activities, ABC School prepares students to excel in a dynamic world while fostering creativity, confidence, and lifelong values.</p>
+                </div>
+
+                <div class="col-md-6 animate__animated animate__bounceInRight">
+                    <img src="{%  static 'images/library.jpeg' %}" class="why-img p-4 w-100">
+                    <p class="why-content p-4 ">Our vision is to be a leading educational institution recognized for academic excellence, innovation, and holistic development. We aim to foster a culture of curiosity, inclusivity, and resilience, empowering students to embrace challenges, excel in their pursuits, and contribute meaningfully to a rapidly evolving world. By integrating technology, sustainability, and global perspectives, we aspire to nurture compassionate leaders equipped with the skills, knowledge, and integrity to shape a brighter future for their communities and beyond.</p>
+                </div>
+            </div>
+
+        </div>
+    </section>
+
+
+    <section class="programs container-fluid mt-5">
+        <div class="container">
+        <div class="row">
+            <div class="col-md-6 p-5 animate__animated animate__bounceInUp">
+                <img src="{% static 'images/child.jpeg' %}" class="program-img w-100 py-5">
+            </div>
+
+            <div class="col-md-6 p-5 p-5 programs animate__animated animate__backInUp">
+                <h3 class="fw-bolder col-primary fs-40 pt-5">Our <b>Programs</b></h3>
+                <p class="fw-semibold py-3">ABC School offers a comprehensive and well-structured curriculum for students up to Grade 10, focusing on academic excellence, skill development, and holistic growth.<br> <br>Our programs are designed to create a balanced educational experience, ensuring students are well-equipped for higher education and life beyond school.</p>
+
+                {% for program in programs %}
+                <a href="" class="program {{ program.count }} col-sec">{{program.name}} <i class="program-icon fa-solid fa-arrow-right"></i></a>
+                {% endfor %}
+
+                <img src="{% static 'images/lab.webp' %}" class="program-img w-100 py-5">
+            </div>
+        </div>
+    </div>
+    </section>
+
+    <section class="testimonail container mt-5 mb-5">
+        <div class="quotes py-5"></div>
+            <div id="carouselExample" class="carousel slide" data-bs-ride="carousel">
+                <!-- Carousel Indicators -->
+                <!-- <ol class="carousel-indicators mt-4 mb-4">
+                    <li data-bs-target="#carouselExample" data-bs-slide-to="0" class="active"></li>
+                    <li data-bs-target="#carouselExample" data-bs-slide-to="1"></li>
+                    <li data-bs-target="#carouselExample" data-bs-slide-to="2"></li>
+                </ol> -->
+                
+                <!-- Carousel Inner (Slides) -->
+                <div class="carousel-inner text-center mt-5">
+                    <div class="carousel-item active mb-5">
+                            <h5>Amazing teachers and a welcoming environment! Learning here is a truly enriching experience.</h5>
+                            <p class="col-sec">Sarah L.</p>
+                    </div>
+                    <div class="carousel-item mb-5">
+                            <h5>Exceptional academic standards and a caring staff. I'm grateful for the skills I developed here.</h5>
+                            <p class="col-sec">Emily P.</p>
+                    </div>
+                    <div class="carousel-item mb-5">
+                            <h5>A school that inspires and nurtures young minds. Couldn't ask for a better learning environment.</h5>
+                            <p class="col-sec">Liam A.</p>
+                    </div>
+                </div>
+        
+
+            </div>
+    </section>
+
+
+    <div class="parallax">
+        <div class="back-color" style="background-color: rgba(39, 54, 86, 0.91);"></div>
+        <div class="container content">
+          <h2 style="font-size: 2rem;">Welcome to Our School</h2>
+          <p class="mt-3 mb-3 fs-25">Discover a place where learning comes to life!</p>
+          <button class="pri-btn mt-3 fw-bold">EXPLORE</button>
+        </div>
+      </div>
+
+
+<div class="container mt-5 mb-5">
+    <div class="head col-sec  d-flex justify-content-between">
+        <h4 class="">NOTICES </h4><span class="fs-15">VIEW ALL -></span>
+    </div>
+
+    <div class="your-class" >
+        {% for item in notice %}
+        <div class=" px-3">
+            <img src="media/{{item.thumbnail}}" class="w-100" style="height:250px;object-fit: cover;">
+            <p class="py-1 m-0">{{item.title}} </p>
+            <a href="notice/{{item.post_id}}" class="p-0 fs-12 col-sec ">View Notice</a>
+            
+        </div>
+        {% endfor %}
+    </div>
+</div>
+
 {% endblock content %}

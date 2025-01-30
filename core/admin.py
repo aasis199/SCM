@@ -1,11 +1,18 @@
 from django.contrib import admin
-from .models import Notice, Career, Contact, Register, Departments, Academics
+from .models import Notice, Career, Contact, Register, Departments, Academics, Programs
 
 # Registering models for the admin interface
 @admin.register(Notice)
 class NoticeAdmin(admin.ModelAdmin):
     list_display = ('title', 'pub_date')
     search_fields = ('title', 'head')
+
+
+
+@admin.register(Programs)
+class ProgramsAdmin(admin.ModelAdmin):
+    list_display = ('name', 'about')
+
 
 @admin.register(Career)
 class CareerAdmin(admin.ModelAdmin):
@@ -14,13 +21,14 @@ class CareerAdmin(admin.ModelAdmin):
 
 @admin.register(Contact)
 class ContactAdmin(admin.ModelAdmin):
-    list_display = ('Name', 'email', 'phone', 'subject')
-    search_fields = ('Name', 'email', 'subject')
+    list_display = ('name', 'phone', 'address')
+    search_fields = ('name', 'address')
 
 @admin.register(Register)
 class RegisterAdmin(admin.ModelAdmin):
-    list_display = ('first_name', 'last_name', 'email', 'phone', 'course')
-    search_fields = ('first_name', 'last_name', 'email', 'course')
+    list_display = ('student_name', 'dob', 'gender', 'email', 'phone', 'grade')
+    search_fields = ('student_name', 'email', 'phone')
+    list_filter = ('gender', 'grade')
 
 @admin.register(Departments)
 class DepartmentsAdmin(admin.ModelAdmin):

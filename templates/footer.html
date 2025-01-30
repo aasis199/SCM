@@ -1,7 +1,41 @@
+{% load static %}
+<footer class="footer py-5">
+    <div class="container">
+        <div class="row">
+            <!-- Left Section -->
+            <div class="col-md-6 footer-left">
+                <a class="navbar-brand px-0" href="/"><img src="{% static '/images/logo.png' %}" alt=""></a>
 
-    <!-- Footer -->
-    <footer>
-        <div class="container">
-            <p>&copy; 2025 School Management System. All rights reserved.</p>
+                <p class="address px-4 pt-3">New Baneshwor, Kathmandu, Nepal</p>
+                <p class="contact px-4 py-2">9821000000</p>
+                <div class="social-icons px-4 py-4">
+                    <a href="#"><i class="fa-brands fa-facebook col-sec fs-25"></i></a>
+                    <a href="#"><i class="fa-brands fa-instagram px-3 col-sec fs-25"></i></a>
+                    <a href="#"><i class="fa-brands fa-whatsapp col-sec fs-25"></i></a>
+                </div>
+            </div>
+
+            <!-- Right Section (Contact Form) -->
+            <div class="col-md-6 footer-right p-4">
+                <h2>Contact Us</h2>
+                <p>For any query or additional information, feel free to reach out.</p>
+                <form action="" method="post">
+                    {% csrf_token %}
+                    <div class="mb-3">
+                        <input type="text" class="form-control" placeholder="Full Name" name="name">
+                    </div>
+                    <div class="mb-3">
+                        <input type="address" class="form-control" placeholder=" Address" name="address">
+                    </div>
+                    <div class="mb-3">
+                        <input type="number" class="form-control" placeholder="Contact" name="contact">
+                    </div>
+                    <div class="mb-3">
+                        <textarea type="text" class="form-control" placeholder="message" name="message" ></textarea>
+                    </div>
+                    <button type="submit" class="btn bg-sec w-100">SEND</button>
+                </form>
+            </div>
         </div>
-    </footer>
+    </div>
+</footer>

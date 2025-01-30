@@ -1,0 +1,55 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %} 
+
+    <section class="about container-fluid" style="margin-top: 92px;">
+        <div class="about-us text-center col-md-12">
+            <h1>About Us</h1>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci explicabo maiores rerum eveniet ducimus molestiae alias porro vero, itaque laborum qui mollitia minima aliquid distinctio iure necessitatibus impedit provident in.</p>
+        </div>
+
+    </section>
+    <section id="our-team" class="mt-5">
+        <div class="container">
+          <div class="title text-center fs-100 fw-bold py-4">Our team</div>
+            <div class="row text-center">
+                {% for item in team %}
+                <div class="col-md-4 teams" >
+                    <div class="team-image">
+                        <img src="/media/{{item.image}}" class="team-img w-100">
+                    </div>
+                    <h4 class="pt-4">{{item.name}}</h4>
+                    <p class="p-1">{{item.qualification}}</p>
+                </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="foot container mt-5 mb-5">
+            <div class="row">
+                <div class="col-md-6 ">
+                    <h3 class="text">ABOUT</h3>
+                    <p>Choosing the best school is a critical decision that shapes the foundation of a child's future. The best schools aren't just institutions for academic learning—they are holistic environments that nurture intellectual growth, emotional resilience, and social skills.</p>
+                </div>
+
+                <div class="col-md-6 ">
+                    <h3 class="text">CONTACT</h3>
+                    <p>New york, USA<br>
+                    Email: abcskool@gmail.com<br>
+                    Sunday to Friday: 10 a.m to 7 p.m<br></p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script type="text/javascript">
+    $(document).ready(function(){
+    $('.multiple-items').slick({
+        infinite: true,
+        slidesToShow: 3,
+        slidesToScroll: 3
+    });
+    });
+    </script>
+{% endblock content %} 

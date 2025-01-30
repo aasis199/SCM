@@ -1,0 +1,23 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %} 
+
+<div class="container mb-5" style="margin-top: 150px;">
+    <div class="heading">
+        <h3 class="fw-bolder col-primary fs-40 pt-5">Our <b>Programs</b><hr></h3>
+    </div>
+    <div class="row">
+       {% for item in programs %}
+       <div class="col-md-4 ">
+        <div class="card mx-2 mt-5 ">
+            <h3 class="p-3">{{item.name}}<hr></h3>
+            <p class="fs-15 p-3">{{item.excerpt|truncatewords:20}}</p>
+            <img src="/media/{{item.image}}" class="w-100">
+            <a href="/program/{{item.id}}" class="p-2 col-sec">Read More...</a>
+        </div>
+       </div>
+       {% endfor %}
+    </div>
+</div>
+{% endblock content %} 

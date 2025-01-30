@@ -1,0 +1,22 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %} 
+
+<div class="container"  style="margin-top: 100px;">
+    <div class="breadcrumb my-3 fs-15"><a class="fs-15 col-sec" href="/">Home</a> / <a class="fs-15 col-sec"  href="/notice">Notice</a> /  1</div>
+
+
+<div  class="row" style="justify-content: center;">
+    <span class="fs-15">{{notice.pub_date}} by <span style="color:#e75430;"><i>Admin</i></span></span>
+    <h1 class="col-sec"> {{notice.title}}</h1>
+    <h3 class="fs-15"><i>{{notice.head}}</i></h3>
+
+    <div class="thumb-image">
+        <img src="/media/{{notice.thumbnail}}" class="w-100">
+    </div>
+
+    <p>{{notice.body | safe}}</p>
+</div>
+</div>
+{% endblock content %} 
