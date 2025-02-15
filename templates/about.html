@@ -3,10 +3,10 @@
 
 {% block content %} 
 
-    <section class="about container-fluid" style="margin-top: 92px;">
+    <section class="about container-fluid" style="margin-top: 92px;align-items: center;">
         <div class="about-us text-center col-md-12">
             <h1>About Us</h1>
-            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Adipisci explicabo maiores rerum eveniet ducimus molestiae alias porro vero, itaque laborum qui mollitia minima aliquid distinctio iure necessitatibus impedit provident in.</p>
+            <p>Education for life and for better prosperity” refers to an educational approach that aims to equip individuals with the knowledge, skills, and attitudes necessary to succeed in various aspects of life and contribute to the overall well-being and advancement of society. It goes beyond traditional academic learning and focuses on holistic development, practical skills, critical thinking, and character building.</p>
         </div>
 
     </section>
@@ -16,11 +16,13 @@
             <div class="row text-center">
                 {% for item in team %}
                 <div class="col-md-4 teams" >
-                    <div class="team-image">
+                    <div class="team-image border">
                         <img src="/media/{{item.image}}" class="team-img w-100">
                     </div>
                     <h4 class="pt-4">{{item.name}}</h4>
-                    <p class="p-1">{{item.qualification}}</p>
+                    <p class="p-1 col-sec">{{item.department}}</p>
+                    <p class="p-1">{{item.forewords|truncatewords:20}}</p><a href="/message/{{item.name}}" class="col-primary">Read More..</a>
+
                 </div>
                 {% endfor %}
             </div>

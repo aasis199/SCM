@@ -37,6 +37,6 @@ class DepartmentsAdmin(admin.ModelAdmin):
 
 @admin.register(Academics)
 class AcademicsAdmin(admin.ModelAdmin):
-    list_display = ('name', 'department', 'qualification')
+    list_display = ('name', 'department', 'forewords')
     search_fields = ('name', 'department__title')
     list_filter = ('department',)

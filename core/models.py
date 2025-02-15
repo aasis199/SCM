@@ -84,14 +84,17 @@ class Register(models.Model):
 
 class Departments(models.Model):
     title = models.CharField(blank=True, null= True, max_length=255)
+    def __str__(self):
+        return self.title
 
 class Academics(models.Model):
     department = models.ForeignKey(Departments, on_delete= models.CASCADE)
     name = models.CharField(blank=False, null=False, max_length=255)
-    qualification = models.CharField(blank=False, null= False, max_length=255)
+    forewords = models.TextField(default="")
     image = models.ImageField(default="")
 
     def __str__(self):
         return self.name
+    
     
 

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %} 
+<style>
+    .thumb-image{
+        width: 400px;
+    }
+</style>
+<div class="container mb-4"  style="margin-top: 100px;">
+    <div class="breadcrumb my-3 fs-15"><a class="fs-15 col-sec" href="/">Home</a> / <a class="fs-15 col-sec"  href="/about">About</a> / {{team.name}}</div>
+
+
+<div  class="row text-center" style="justify-content: center;" >
+   
+    <div class="thumb-image mt-5 mb-1 ">
+        <img src="/media/{{team.image}}" class="w-100 py-2">
+
+    
+    </div>
+    <h1 class="col-sec"> {{team.name}}</h1>
+    <h3 class="fs-15 pb-3"><i>{{team.department}}</i></h3>
+
+    <p class="text-justify">{{team.forewords | safe}}</p>
+</div>
+</div>
+{% endblock content %} 

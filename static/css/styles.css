@@ -11,6 +11,7 @@
 }
 .alert-success{
   margin-top: 92px !important;
+  
 }
 body{
   overflow-x: hidden;
@@ -21,7 +22,7 @@ body{
   align-items: center; /* Centers content vertically */
   justify-content: center;
   height: 30vh;
-  background-image: url('/static/images/asemble.jpg');
+  background-image: url('/static/images/assemble.jpg');
   width: 100vw;
   background-size: cover;
 }

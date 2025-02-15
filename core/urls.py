@@ -12,6 +12,8 @@ urlpatterns = [
     path('admin/', admin.site.urls),           # Admin panel
     path('', index, name='home'),        # Home page
     path('about/', about, name='about'), # About page
+    path('message/<str:name>', aboutmessage, name='aboutmessage'), # About page
+
     path('programs/', programs, name='programs'), # About page
     path('notices/', notices, name='notices'), # About page
 

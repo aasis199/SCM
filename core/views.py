@@ -89,6 +89,13 @@ def about(request):
     }
     return render(request, 'about.html', context) 
 
+def aboutmessage(request, name):
+    team = Academics.objects.filter(name = name)[0]
+    context ={
+        'team': team
+    }
+    return render(request, 'message.html', context) 
+
 def programs(request):
     programs = Programs.objects.all()
     context ={
